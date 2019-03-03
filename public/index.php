@@ -17,7 +17,8 @@ class main {
     static public function start($filename) {
 
         $records = csv::getRecords($filename);
-        print_r($records);
+        $table = html::generateTable($records);
+        print_r($table);
 
     }
 
@@ -47,7 +48,6 @@ class csv {
         }
 
         fclose($file);
-
         return $records;
     }
 }
@@ -86,6 +86,45 @@ class recordFactory{
         }
 }
 
+
+class html {
+
+    static public function generateTable($records){
+
+        $count=0;
+
+        $finalArray1 = array();
+        $finalArray2 = array();
+
+        foreach($records as $record)
+        {
+            if ($count == 0) {
+                   $array = $record->returnArray();
+                   $keys = array_keys($array);
+                   $values = array_values($array);
+
+                   array_push($finalArray1, $keys);
+                   array_push($finalArray1, $values);
+
+               }
+
+            else {
+                   $array = $record->returnArray();
+                   $values = array_values($array);
+
+                   array_push($finalArray2, $values);
+
+               }
+
+            $count++;
+
+        }
+
+        $finalArray = array_merge($finalArray1, $finalArray2);
+        return $finalArray;
+
+    }
+}
 
 
 
