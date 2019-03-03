@@ -10,7 +10,7 @@
  * Time: 2:29 PM
  */
 
-main::start("example.csv");
+main::start("insurance.csv");
 
 class main {
 
