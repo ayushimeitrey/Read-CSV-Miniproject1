@@ -131,7 +131,7 @@ class system {
     {
         $count=0;
 
-        echo "<table class='table'>";
+        echo "<table class='table table-striped table-bordered'>";
 
         foreach($table as $record)
         {
