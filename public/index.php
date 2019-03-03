@@ -18,8 +18,7 @@ class main {
 
         $records = csv::getRecords($filename);
         $table = html::generateTable($records);
-        print_r($table);
-
+        system::printTable($table);
     }
 
 }
@@ -126,5 +125,49 @@ class html {
     }
 }
 
+class system {
 
+    static public function printTable($table)
+    {
+        $count=0;
+
+        echo "<table class='table'>";
+
+        foreach($table as $record)
+        {
+
+            if ($count == 0) {
+
+                $keys = array_values($record);
+
+                echo "<thead><tr>";
+
+                foreach($keys as $key) {
+                        echo "<th>" . $key . "</th>";
+                    }
+                echo"</tr></thead><tbody>";
+
+            }
+
+            else {
+
+                $values = array_values($record);
+
+                echo "<tr>";
+
+                foreach($values as $value) {
+                    echo "<td>" . $value . "</td>";
+                }
+
+                echo "</tr>";
+
+            }
+
+            $count++;
+        }
+
+        echo "</tbody></table>";
+
+    }
+}
 
