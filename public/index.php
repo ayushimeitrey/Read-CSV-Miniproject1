@@ -10,7 +10,7 @@
  * Time: 2:29 PM
  */
 
-main::start("insurance.csv");
+main::start("example.csv");
 
 class main {
 
@@ -131,7 +131,7 @@ class system {
     {
         $count=0;
 
-        echo "<table class='table table-striped table-bordered'>";
+        echo "<table class='table table-dark table-striped table-bordered '>";
 
         foreach($table as $record)
         {
@@ -140,7 +140,7 @@ class system {
 
                 $keys = array_values($record);
 
-                echo "<thead><tr>";
+                echo "<thead style='color:maroon'><tr>";
 
                 foreach($keys as $key) {
                         echo "<th>" . $key . "</th>";
